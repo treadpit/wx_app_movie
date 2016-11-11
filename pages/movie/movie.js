@@ -18,14 +18,14 @@ const conf = {
                 loading: false
             });
             wx.setNavigationBarTitle({
-                title: this.data.title + ' <- 电影 <- 聚美'
+                title: this.data.title
             })
         })
     },
 
     onReady() {
         wx.setNavigationBarTitle({
-            title: this.data.title + ' <- 电影 <- 聚美'
+            title: this.data.title
         });
     }
 };
