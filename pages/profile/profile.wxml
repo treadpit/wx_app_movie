@@ -1,0 +1,28 @@
+<view>
+    <view class="user box box-tb">
+        <view class="box box-lr box-pack-start box-align-center">
+            <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
+            <view class="flex box box-tb nick-name">
+                <text>{{userInfo.nickName}}</text>
+                <view class="box box-lr situation">
+                    <text>在线时长 {{userInfo.onlineTime}} 小时</text>
+                    <text>|</text>
+                    <text>经验 {{userInfo.experience}}</text>
+                </view>
+            </view>
+        </view>
+        
+        <view class="flex box box-lr box-pack-between arround">
+            <text class="flex">关注 {{userInfo.attention}}</text>
+            <text class="flex">粉丝 {{userInfo.fans}}</text>
+            <text class="flex">积分 {{userInfo.grades}}</text>
+        </view>
+    </view>
+
+    <view class="box box-lr box-pack-between box-align-center about-me">
+        <view class="flex box box-tb each-item">
+            <image class="img" src="{{aboutMe.collect}}"></image>
+            <text>我的收藏</text>
+        </view>
+    </view>
+</view>

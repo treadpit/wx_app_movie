@@ -1,0 +1,64 @@
+{
+	"pages": [
+
+		"pages/profile/profile",
+		"pages/approve/approve",
+		"pages/news/news",
+		"pages/movie/movie",
+		"pages/hot/hot",
+		"pages/search/search"
+	],
+	"window": {
+		"navigationBarBackgroundColor": "#e50150",
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "聚美",
+		"backgroundColor": "#fff",
+		"backgroundTextStyle": "dark",
+		"enablePullDownRefresh": true
+	},
+	"tabBar": {
+		"color": "#ccc",
+		"selectedColor": "#35495e",
+		"borderStyle": "white",
+		"backgroundColor": "#fafafa",
+		"list": [
+			{
+				"text": "推荐",
+				"pagePath": "pages/approve/approve",
+				"iconPath": "images/approve.png",
+				"selectedIconPath": "images/approve-actived.png"
+			},
+			{
+				"text": "热映",
+				"pagePath": "pages/hot/hot",
+				"iconPath": "images/hot.png",
+				"selectedIconPath": "images/hot-actived.png"
+			},
+			{
+				"text": "搜索",
+				"pagePath": "pages/search/search",
+				"iconPath": "images/search.png",
+				"selectedIconPath": "images/search-actived.png"
+			},
+			{
+				"text": "资讯",
+				"pagePath": "pages/news/news",
+				"iconPath": "images/news.png",
+				"selectedIconPath": "images/news-actived.png"
+			},
+			{
+				"text": "我的",
+				"pagePath": "pages/profile/profile",
+				"iconPath": "images/profile.png",
+				"selectedIconPath": "images/profile-actived.png"
+			}
+		]
+	},
+	"networkTimeout": {
+		"request": 10000,
+		"connectSocket": 10000,
+		"uploadFile": 10000,
+		"downloadFile": 10000
+	},
+	"debug": false
+}
