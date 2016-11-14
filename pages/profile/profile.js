@@ -15,7 +15,7 @@ const conf = {
 						res.userInfo.attention = 5;
 						res.userInfo.fans = 205;
 						res.userInfo.grades = 561;
-						res.aboutMe = {
+						res.userInfo.aboutMe = {
 							collect: '../../images/hot-actived.png'
 						};
 						self.setData({
@@ -30,6 +30,26 @@ const conf = {
 			fail() {
 				console.log('登陆失败！');
 			},
+		})
+	},
+	lightAode(e) {
+		const mode = e.detail.value ? '开启' : '关闭';
+		wx.showModal({
+			title: `是否${mode}夜间模式`,
+			content: `是否${mode}夜间模式`,
+			showCancel: true,
+			cancelText: '后悔了',
+			confirmText: '是的',
+			success() {
+				wx.showToast({
+					title: `成功${mode}`,
+					icon: 'success',
+					duration: 500
+				})
+			},
+			fail() {
+				
+			}
 		})
 	}
 };

@@ -1,5 +1,6 @@
 page {
   background-color: #fef8fd;
+  height: 100%;
 }
 .user {
   margin-top: 20rpx;
@@ -30,5 +31,33 @@ page {
   text-align: center;
 }
 .about-me {
-  height: 200rpx;
+  background-color: #fff;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+  margin-top: 15rpx;
+  margin-bottom: 15rpx;
+}
+.about-me .img {
+  width: 50rpx;
+  height: 50rpx;
+  margin-bottom: 15rpx;
+}
+.about-me .tit {
+  font-size: 28rpx;
+}
+.settings {
+  background-color: #fff;
+}
+.setting-item {
+  padding: 0 20rpx;
+  height: 100rpx;
+  border-bottom: 1rpx solid #eee;
+  font-size: 32rpx;
+}
+.settings .icon {
+  width: 40rpx;
+  height: 40rpx;
+}
+.settings .item-icon {
+  margin-right: 20rpx;
 }

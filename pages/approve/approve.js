@@ -16,6 +16,19 @@ const conf = {
 				loading: false
 			})
 		})
+	},
+	lower() {
+		var self = this;
+		self.setData({
+			loading: true
+		});
+		app.fetch(API.top, (err, data) => {
+			this.setData({
+				title: 'Top 100' || data.title,
+				movies: self.data.movies.concat(data.subjects),
+				loading: false
+			})
+		})
 	}
 };
 // Page() 函数注册页面
