@@ -17,12 +17,14 @@
 ### 三 、开发前须知
 + AppStore问题;
 + 发布的项目包体积 **< 1M**, 只适合轻量级 😤;
++ 由于现在官方的限制，只能7天内能够给使用过该小程序的用户进行消息发送，所以关于消息发布还需要更多的斟酌;
 + 开发基于微信框架，部分功能受限, 不能操作DOM, 没有script标签，要引入则需加入项目文件夹;
 + 没有与浏览器BOM相关的API;
 + 没有cookie 😱;
 + 用 **storage** 替代了H5中的*localstorage*、*sessionstorage*、 storage对每个小程序的大小是 **10M**，支持 **同步** 和 **异步** 🤔。
 + 同时只能存在 **5** 个url请求;
 + 小程序页面只能同时打开 **5** 个，如果交互流程较长难以支持;
++ 为了方便开发者减少配置项，规定描述页面的这四个文件必须具有相同的路径与文件名;
 + 注释方式： `// comment`, `/** comment **/`;
 
 注意：cookie问题，在请求发送时，可以动态设置Header发送报文的cookie，但是 **cookie本身不能在客户端进行读写**。
@@ -39,25 +41,35 @@ wx.request({
 ### 四、路由
 1. pages 里面的第一个元素即为首页;
 2. 每个页面需要手动在app.json中进行注册，否则不能访问;
-3. 路由跳转： 组件跳转(navigator) ／ API跳转
+3. 路由跳转： 组件跳转(navigator) ／ API跳转;
+4. 只能同时打开5个页面，否则wx.navigateTo不能正常打开新页面，避免多层级的交互方式，或者使用wx.redirectTo。
 
 ```
-wx.navigateTo({  // 保留当前页
-	url: "",
-	...
-}) 
 
-wx.navigateTo({  // 关闭当前页
-	url: "",
-	...
-})
+// <navigator/>组件内部不能再嵌套<navigator/>组件。只能是单层存在
+
+	<navigator url="search/search">
+		<view class="serach_view_show" bindtap="bindtap"> 搜索</view>
+	</navigator>
+
+// API
+
+	wx.navigateTo({  // 保留当前页
+		url: "",
+		...
+	}) 
+	
+	wx.redirectTo({  // 关闭当前页
+		url: "",
+		...
+	})
 
 ```
 
 ### 五、Tab页
 
 1. 由app.json定义；
-2. 配置最少2个、最多5个；
+2. 最多 **5** 个；
 3. 每个页面的 `.json` 文件可以覆盖定义导航栏。
 
 ### 六、页面结构
@@ -69,6 +81,12 @@ wx.navigateTo({  // 关闭当前页
 + `.wxml` 文件是页面结构文件
 
 ![](http://mmbiz.qpic.cn/mmbiz_png/tnZGrhTk4dfuSoEBa0bEh8RGsIW2ETpjtic2d6sibDx40IJ4WzHV7Jb6KjCNmtr4NPe9nLPPEGV77n5IuGEzbfmA/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1)
+
+> app.json
+必须，微信框架配置文件入口，整个小程序的全局配置。包括页面注册，网络设置，以及小程序的window背景色，配置导航条样式，配置默认标题。
+
+> app.js
+必须，可以什么都不需要写，后期再监听并处理小程序的生命周期函数、声明全局变量。
 
 ##### `.wxml` 文件
 ```
@@ -189,3 +207,4 @@ page({
 - 各个页面的配置性文件
 
 [小程序其他限制](https://github.com/iamxwk/Code-wiki/issues/18)
+[其他注意事项](http://weixin.huosu.com/portal.php?mod=view&aid=226)
