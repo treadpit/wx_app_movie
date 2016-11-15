@@ -5,4 +5,4 @@ const api = {
      search: 'https://api.douban.com/v2/movie/search'
 }
 
-// module.exports = api;
+module.exports = api;

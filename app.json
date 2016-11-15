@@ -1,15 +1,15 @@
 {
 	"pages": [
-		"pages/profile/profile",
-		"pages/approve/approve",
-		"pages/news/news",
-		"pages/movie/movie",
 		"pages/hot/hot",
-		"pages/search/search"
+		"pages/approve/approve",
+		"pages/movie/movie",
+		"pages/search/search",
+		"pages/cinema/cinema",
+		"pages/profile/profile"
 	],
 	"window": {
 		"navigationBarBackgroundColor": "#e50150",
-		"navigationBarTextStyle": "white",
+		"navigationBarTextStyle": "#fff",
 		"navigationBarTitleText": "聚美",
 		"backgroundColor": "#fff",
 		"backgroundTextStyle": "dark",
@@ -18,15 +18,9 @@
 	"tabBar": {
 		"color": "#ccc",
 		"selectedColor": "#35495e",
-		"borderStyle": "white",
+		"borderStyle": "#fff",
 		"backgroundColor": "#fafafa",
 		"list": [
-			{
-				"text": "推荐",
-				"pagePath": "pages/approve/approve",
-				"iconPath": "images/approve.png",
-				"selectedIconPath": "images/approve-actived.png"
-			},
 			{
 				"text": "热映",
 				"pagePath": "pages/hot/hot",
@@ -34,16 +28,22 @@
 				"selectedIconPath": "images/hot-actived.png"
 			},
 			{
+				"text": "影院",
+				"pagePath": "pages/cinema/cinema",
+				"iconPath": "images/cinema.png",
+				"selectedIconPath": "images/cinema-actived.png"
+			},
+			{
+				"text": "推荐",
+				"pagePath": "pages/approve/approve",
+				"iconPath": "images/approve.png",
+				"selectedIconPath": "images/approve-actived.png"
+			},
+			{
 				"text": "搜索",
 				"pagePath": "pages/search/search",
 				"iconPath": "images/search.png",
 				"selectedIconPath": "images/search-actived.png"
-			},
-			{
-				"text": "资讯",
-				"pagePath": "pages/news/news",
-				"iconPath": "images/news.png",
-				"selectedIconPath": "images/news-actived.png"
 			},
 			{
 				"text": "我的",

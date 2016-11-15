@@ -104,6 +104,11 @@ const conf = {
 				})
 			}
 		})
+	},
+	callMe() {
+		wx.makePhoneCall({
+			phoneNumber: 18782966163
+		})
 	}
 };
 

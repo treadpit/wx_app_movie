@@ -18,8 +18,8 @@ const conf = {
                 loading: false
             });
             wx.setNavigationBarTitle({
-                title: this.data.title
-            })
+                title: data.title
+            });
         })
     },
 

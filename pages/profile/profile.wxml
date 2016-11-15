@@ -63,4 +63,9 @@
         <text class="flex">设置头像</text>
         <image class="icon right-arrow" src="../../images/right-arrow.png"></image>
     </view>
+    <view class="box box-lr box-align-center setting-item" bindtap="callMe">
+        <image class="icon item-icon" src="../../images/hot.png"></image>
+        <text class="flex">call me</text>
+        <image class="icon right-arrow" src="../../images/right-arrow.png"></image>
+    </view>
 </view>
