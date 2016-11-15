@@ -5,7 +5,8 @@
 		"pages/movie/movie",
 		"pages/search/search",
 		"pages/cinema/cinema",
-		"pages/profile/profile"
+		"pages/profile/profile",
+		"pages/login/login"
 	],
 	"window": {
 		"navigationBarBackgroundColor": "#e50150",
