@@ -8,32 +8,32 @@ const conf = {
     phone: "",
     code: ""
   },
-  login() {
+  _login() {
 
     // ajax 请求
     // fetch("", function())
-
-    wx.navigateTo({
-      url: '../hot/hot',
-      success: function (res) {
-        wx.setStorage({
-          key: 'user',
-          data: {
-            'uid': '45213665',
-            'hasLogin': true
-          },
-          success: function(res){
-            // success
-          }
-        })
-      },
-      fail: function () {
-        // fail
-      },
-      complete: function () {
-        // complete
+    // wx.showToast({
+    //   title: "正在登陆..."
+    // });
+      wx.navigateTo({
+				url: '../hot/hot',
+         success: function (res) {
+           console.log('跳转成功');
+           console.log(res);
+           wx.setStorage({
+             key: 'user',
+             data: {
+               'uid': '45213665',
+               'hasLogin': true
+             },
+             success: function (_res) {
+               // success
+               console.log('储存成功');
+               console.log(_res);
+             }
+           })
       }
-    })
+			})
   }
 };
 

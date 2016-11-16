@@ -1,6 +1,6 @@
 <scroll-view scroll-y="true" class="flex box box-tb page-body">
     <swiper class="swiper_box" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}"
-            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
+            autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
         <block wx:for-items="{{images}}">
             <swiper-item>
                 <image src="{{item}}" class="slide-image"/>

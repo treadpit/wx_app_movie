@@ -17,11 +17,8 @@ Page({
       "http://static.show.wepiao.com/thumb/full/875/400/http://static.show.wepiao.com/upload/5/894/bdc97/58941bdc9702422e141c51a927967c64.jpg?v=cd221"
     ]
   },
-  swiperchange: function (e) {
-    //console.log(e.detail.current)
-  },
-
   onLoad: function () {
+      wx.hideToast();
       app.fetch(API.top, (err, data) => {
         this.setData({
           movies: data.subjects,

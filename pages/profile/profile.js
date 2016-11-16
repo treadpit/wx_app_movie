@@ -11,17 +11,19 @@ const conf = {
 		const self = this;
 		const userInfo = wx.getStorageSync('user');
 		if (!userInfo.hasLogin) {
-			wx.navigateTo({
+			wx.redirectTo({
 				url: '../login/login'
 			})
 		} else {
 			wx.showModal({
-				content: "退出当前帐号？",
+				title: '退出',
+				content: "注销当前帐号，但不会退出该程序？",
 				showCancel: true,
 				cancelText: "取消",
 				confirmText: "退出",
 				success(res) {
-					if (res.confirm) {
+					console.log(res);
+					if (res.confirm === 'true' || res.confirm === 1) {
 						self.logout();
 					}
 				}
@@ -117,7 +119,7 @@ const conf = {
 	onShow: function () {
 		// 页面显示
 		const userInfo = wx.getStorageSync('user');
-		if (userInfo.hasLogin) {
+		if (userInfo !== '' && userInfo.hasLogin) {
 			var self = this;
 
 			// const uid = userInfo.uid;

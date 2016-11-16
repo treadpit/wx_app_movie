@@ -1,12 +1,18 @@
 page {
     overflow: hidden;
 }
-
+.input-placeholder {
+    color: #ccc;
+}
 .bg {
     background-repeat: no-repeat;
 }
 .bg view {
-    padding: 0 50rpx;
+    padding: 0 30rpx;
+}
+.logo image {
+    width: 78%;
+    margin-left: 12%;
 }
 .telephone {
     margin-bottom: 25rpx;
@@ -15,10 +21,13 @@ page {
     border: 1px solid #ccc;
     height: 80rpx;
     border-radius: 10rpx;
-    text-indent: 5rem;
+    text-indent: 15rpx;
     margin-right: 10rpx;
 }
 .telephone button {
+    line-height: 80rpx;
+}
+.login button {
     background-color: #e50150;
 }
 .code {
@@ -29,5 +38,5 @@ page {
     height: 80rpx;
     margin-bottom: 40rpx;
     border-radius: 10rpx;
-    text-indent: 50rpx;
+    text-indent: 15rpx;
 }
