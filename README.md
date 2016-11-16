@@ -3,7 +3,8 @@
 - 一种介于原生app、和web app的hybrid, 比web app 的开发成本还低;
 - 通过微信进行加载;
 - 相对原生app来说，更加轻量、更新实时、跨平台;
-- 相对web app来说，资源离线，体验更流畅。
+- 相对web app来说，资源离线，体验更流畅;
+- 低频、无强粘性;
 - 可以使用微信的支付功能
 
 [开发者工具](https://mp.weixin.qq.com/debug/wxadoc/dev/devtools/download.html?t=20161107)
@@ -207,7 +208,73 @@ page({
 - 各个页面的配置性文件
 
 ### 七、杂项
-#### 1. 微信支付
+#### 微信支付
+#### data操作
+```
+	// data 设置
+
+	Page({
+		data: {
+			user: {
+				name: {
+					nickName: 'Tom'
+				}
+			}
+		},
+		changeData() {
+			this.setData({
+				'user.name.nickName': '汤姆'
+			})
+		}
+	})
+
+---------------------------------------------------------------------------------------------
+
+	// 标签自定义data取值
+
+	// index.wxml
+	<view data-name="tear" data-type="someType" bindlongtap="getData">绑定事件</view>
+
+	// index.js
+
+	Page({
+		getData(e) {
+			const _data = e.currentTarget.dataset;  // => {name: 'tear', type: 'someType'}
+		}
+	})
+
+
+
+```
+#### 八、事件绑定
+
+| 事件类型        | 描述           |
+| ------------- |:------------- |
+| touchstart      | 手指触摸动作开始 |
+| touchmove     | 手指触摸后移动    |
+| touchcancel | 手指触摸动作被打断，如来电提醒，弹窗      |
+| tap     | 手指触摸后马上离开    |
+| longtap     | 手指触摸后，超过350ms再离开    |
+
+> bind或catch开头，然后跟上事件的类型，如bindtap
+> bind事件绑定不会阻止冒泡事件向上冒泡，catch事件绑定可以阻止冒泡事件向上冒泡。
+
+```
+	<view bindtap="clickMe">绑定事件</view>
+
+```
+
+### 八、坑
+- 编辑器问题；
+- 调试工具和手机表现不一致问题(如 弹框标题);
+- API在调试工具和真机上返回值不一样（如 wx.showModal()）;
+- 模拟器对css的支持比较完整，真机只支持部分，但是文档没有列出来;
+- 如果api是post请求,参数是key-value形式,那么直接设置Object是不行的,必须手动拼;
+- view标签不识别'/n'换行符,text组件可以;
+- toast有success和loading状态,竟然没有失败状态，宽度是写死的,字一多就丑得要死;
+- navigateTo无法封装到另一个js方法中,只能直接写,而且失败还不走失败的回调;
+- 元素不能获取自定义data的完整对象值,只能传基本数据类型;
+- 开发工具更新后，原先height:auto失效,必须指定image的高度为具体数值,不然高度为0。
 
 [小程序其他限制](https://github.com/iamxwk/Code-wiki/issues/18)
 [其他注意事项](http://weixin.huosu.com/portal.php?mod=view&aid=226)

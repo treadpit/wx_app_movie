@@ -9,7 +9,7 @@ page {
     background-repeat: no-repeat;
 }
 .bg view {
-    padding: 0 30rpx;
+    padding: 0 28rpx;
 }
 .logo image {
     width: 78%;
