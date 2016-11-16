@@ -276,5 +276,6 @@ page({
 - 元素不能获取自定义data的完整对象值,只能传基本数据类型;
 - 开发工具更新后，原先height:auto失效,必须指定image的高度为具体数值,不然高度为0。
 
+
 [小程序其他限制](https://github.com/iamxwk/Code-wiki/issues/18)
 [其他注意事项](http://weixin.huosu.com/portal.php?mod=view&aid=226)
