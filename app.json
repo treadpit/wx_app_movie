@@ -6,6 +6,7 @@
 		"pages/search/search",
 		"pages/cinema/cinema",
 		"pages/profile/profile",
+		"pages/profile/setting/setting",
 		"pages/login/login"
 	],
 	"window": {
@@ -41,7 +42,7 @@
 				"selectedIconPath": "images/approve-actived.png"
 			},
 			{
-				"text": "搜索",
+				"text": "发现",
 				"pagePath": "pages/search/search",
 				"iconPath": "images/search.png",
 				"selectedIconPath": "images/search-actived.png"

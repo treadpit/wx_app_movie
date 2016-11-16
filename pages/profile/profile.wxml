@@ -20,41 +20,44 @@
     </view>
 
     <view class="box box-lr box-pack-between box-align-center about-me">
-        <view class="flex box box-tb box-pack-center box-align-center each-item">
-            <image class="img" src="../../images/hot.png"></image>
-            <text class="tit">我的收藏</text>
-        </view>
-        <view class="flex box box-tb box-pack-center box-align-center each-item">
-            <image class="img" src="../../images/hot.png"></image>
-            <text class="tit">我的收藏</text>
-        </view>
-        <view class="flex box box-tb box-pack-center box-align-center each-item">
-            <image class="img" src="../../images/hot.png"></image>
-            <text class="tit">我的收藏</text>
-        </view>
-        <view class="flex box box-tb box-pack-center box-align-center each-item">
-            <image class="img" src="../../images/hot.png"></image>
-            <text class="tit">我的收藏</text>
+        <view wx:for="{{tabs}}" data-type="{{item.types}}" class="flex box box-tb box-pack-center box-align-center each-item">
+            <image class="img" src="{{item.icon}}"></image>
+            <text class="tit">{{item.tit}}</text>
         </view>
     </view>
 
     <view class="flex box box-tb settings">
-        <view class="box box-lr box-align-center setting-item">
-            <image class="icon item-icon" src="../../images/hot.png"></image>
-            <text class="flex">历史记录</text>
+        <view wx:for="{{others}}" data-type="{{item.types}}" bindtap="othersClicked" class="box box-lr box-align-center setting-item">
+            <image class="icon item-icon" src="{{item.icon}}"></image>
+            <text class="flex">{{item.tit}}</text>
+            <image class="icon right-arrow" src="../../images/right-arrow.png"></image>
+        </view>
+        <!--<view class="box box-lr box-align-center setting-item">
+            <image class="icon item-icon" src="{{item.icon}}"></image>
+            <text class="flex">{{item.tit}}</text>
             <image class="icon right-arrow" src="../../images/right-arrow.png"></image>
         </view>
         <view class="box box-lr box-align-center setting-item">
-            <image class="icon item-icon" src="../../images/hot.png"></image>
-            <text class="flex">我的订单</text>
+            <image class="icon item-icon" src="{{item.icon}}"></image>
+            <text class="flex">{{item.tit}}</text>
             <image class="icon right-arrow" src="../../images/right-arrow.png"></image>
         </view>
         <view class="box box-lr box-align-center setting-item">
-            <image class="icon item-icon" src="../../images/hot.png"></image>
-            <text class="flex">购物车</text>
+            <image class="icon item-icon" src="{{item.icon}}"></image>
+            <text class="flex">{{item.tit}}</text>
             <image class="icon right-arrow" src="../../images/right-arrow.png"></image>
         </view>
-        <view class="box box-lr box-align-center setting-item">
+        <view class="box box-lr box-align-center setting-item" bindtap="callMe">
+            <image class="icon item-icon" src="{{item.icon}}"></image>
+            <text class="flex">{{item.tit}}</text>
+            <image class="icon right-arrow" src="../../images/right-arrow.png"></image>
+        </view>
+        <view class="box box-lr box-align-center setting-item" bindtap="callMe">
+            <image class="icon item-icon" src="{{item.icon}}"></image>
+            <text class="flex">{{item.tit}}</text>
+            <image class="icon right-arrow" src="../../images/right-arrow.png"></image>
+        </view>-->
+        <!--<view class="box box-lr box-align-center setting-item">
             <image class="icon item-icon" src="../../images/hot.png"></image>
             <text class="flex">夜间模式</text>
             <switch bindchange="lightAode"/>
@@ -63,12 +66,7 @@
             <image class="icon item-icon" src="../../images/hot.png"></image>
             <text class="flex">设置头像</text>
             <image class="icon right-arrow" src="../../images/right-arrow.png"></image>
-        </view>
-        <view class="box box-lr box-align-center setting-item" bindtap="callMe">
-            <image class="icon item-icon" src="../../images/hot.png"></image>
-            <text class="flex">call me</text>
-            <image class="icon right-arrow" src="../../images/right-arrow.png"></image>
-        </view>
+        </view>-->
     </view>
 </scroll-view>
     

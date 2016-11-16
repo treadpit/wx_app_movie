@@ -1,5 +1,6 @@
 page {
     overflow: hidden;
+    background-color: #fef8fd;
 }
 .input-placeholder {
     color: #ccc;
@@ -39,4 +40,8 @@ page {
     margin-bottom: 40rpx;
     border-radius: 10rpx;
     text-indent: 15rpx;
+}
+.footer {
+    height: 150rpx;
+    font-size: 26rpx;
 }
