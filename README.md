@@ -208,42 +208,40 @@ page({
 - 各个页面的配置性文件
 
 ### 七、杂项
-#### 微信支付
+#### [微信支付](http://www.wxapp-union.com/portal.php?aid=375&hmsr=toutiao.io&mod=view&utm_medium=toutiao.io&utm_source=toutiao.io)
 #### data操作
 ```
-	// data 设置
+// data 设置
 
-	Page({
-		data: {
-			user: {
-				name: {
-					nickName: 'Tom'
-				}
+Page({
+	data: {
+		user: {
+			name: {
+				nickName: 'Tom'
 			}
-		},
-		changeData() {
-			this.setData({
-				'user.name.nickName': '汤姆'
-			})
 		}
-	})
+	},
+	changeData() {
+		this.setData({
+			'user.name.nickName': '汤姆'
+		})
+	}
+})
 
 ---------------------------------------------------------------------------------------------
 
-	// 标签自定义data取值
+// 标签自定义data取值
 
-	// index.wxml
-	<view data-name="tear" data-type="someType" bindlongtap="getData">绑定事件</view>
+// index.wxml
+<view data-name="tear" data-type="someType" bindlongtap="getData">绑定事件</view>
 
-	// index.js
+// index.js
 
-	Page({
-		getData(e) {
-			const _data = e.currentTarget.dataset;  // => {name: 'tear', type: 'someType'}
-		}
-	})
-
-
+Page({
+	getData(e) {
+		const _data = e.currentTarget.dataset;  // => {name: 'tear', type: 'someType'}
+	}
+})
 
 ```
 #### 八、事件绑定
@@ -260,11 +258,11 @@ page({
 > bind事件绑定不会阻止冒泡事件向上冒泡，catch事件绑定可以阻止冒泡事件向上冒泡。
 
 ```
-	<view bindtap="clickMe">绑定事件</view>
+<view bindtap="clickMe">绑定事件</view>
 
 ```
 
-### 八、坑
+### 九、坑
 - 编辑器问题；
 - 调试工具和手机表现不一致问题(如 弹框标题);
 - API在调试工具和真机上返回值不一样（如 wx.showModal()）;
