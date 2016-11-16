@@ -7,6 +7,6 @@
         <input class="flex" value="验证码"></input>
     </view>
     <view class="login">
-        <button>登 录</button>
+        <button bindtap="login">登 录</button>
     </view>
 </view>

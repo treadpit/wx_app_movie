@@ -206,5 +206,8 @@ page({
 
 - 各个页面的配置性文件
 
+### 七、杂项
+#### 1. 微信支付
+
 [小程序其他限制](https://github.com/iamxwk/Code-wiki/issues/18)
 [其他注意事项](http://weixin.huosu.com/portal.php?mod=view&aid=226)

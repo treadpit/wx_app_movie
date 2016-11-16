@@ -22,27 +22,11 @@ Page({
   },
 
   onLoad: function () {
-    if (app.globalData.hasLogin) {
       app.fetch(API.top, (err, data) => {
         this.setData({
           movies: data.subjects,
           loading: false
         });
       })
-    } else {
-      wx.redirectTo({
-        url: '../login/login',
-        success: function (res) {
-          // success
-        },
-        fail: function () {
-          // fail
-        },
-        complete: function () {
-          // complete
-        }
-      })
-    }
-
   }
 })

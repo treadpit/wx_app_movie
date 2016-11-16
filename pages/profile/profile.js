@@ -5,31 +5,35 @@ const conf = {
 		userInfo: '' // 可以不定义
 	},
 	onLoad() {
+
+	},
+	toLogin() {
 		const self = this;
-		wx.login({
-			success(res) {
-				wx.getUserInfo({
-					success(res) {
-						res.userInfo.onlineTime = 308;
-						res.userInfo.experience = 5885;
-						res.userInfo.attention = 5;
-						res.userInfo.fans = 205;
-						res.userInfo.grades = 561;
-						res.userInfo.aboutMe = {
-							collect: '../../images/hot-actived.png'
-						};
-						self.setData({
-							userInfo: res.userInfo
-						})
-					},
-					fail() {
-						console.log('用户信息获取失败！');
+		const userInfo = wx.getStorageSync('user');
+		if (!userInfo.hasLogin) {
+			wx.navigateTo({
+				url: '../login/login'
+			})
+		} else {
+			wx.showModal({
+				content: "退出当前帐号？",
+				showCancel: true,
+				cancelText: "取消",
+				confirmText: "退出",
+				success(res) {
+					if (res.confirm) {
+						self.logout();
 					}
-				})
-			},
-			fail() {
-				console.log('登陆失败！');
-			},
+				}
+			})
+		}
+	},
+	logout() {
+		wx.removeStorage({
+			key: 'user'
+		})
+		this.setData({
+			userInfo: ""
 		})
 	},
 	lightAode(e) {
@@ -109,6 +113,50 @@ const conf = {
 		wx.makePhoneCall({
 			phoneNumber: 18782966163
 		})
+	},
+	onShow: function () {
+		// 页面显示
+		const userInfo = wx.getStorageSync('user');
+		if (userInfo.hasLogin) {
+			var self = this;
+
+			// const uid = userInfo.uid;
+			// fetch("getUserInfo", function(){})
+			wx.login({
+				success(res) {
+					wx.getUserInfo({
+						success(res) {
+							res.userInfo.onlineTime = 308;
+							res.userInfo.experience = 5885;
+							res.userInfo.attention = 5;
+							res.userInfo.fans = 205;
+							res.userInfo.grades = 561;
+							res.userInfo.aboutMe = {
+								collect: '../../images/hot-actived.png'
+							};
+							self.setData({
+								userInfo: res.userInfo
+							})
+						},
+						fail() {
+							console.log('用户信息获取失败！');
+						}
+					})
+				},
+				fail() {
+					console.log('登陆失败！');
+				},
+			})
+		}
+	},
+	onReady: function () {
+		// 页面渲染完成
+	},
+	onHide: function () {
+		// 页面隐藏
+	},
+	onUnload: function () {
+		// 页面关闭
 	}
 };
 

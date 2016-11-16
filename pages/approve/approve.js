@@ -9,29 +9,13 @@ const conf = {
 	},
 
 	onLoad() {
-		if (app.globalData.hasLogin) {
-			app.fetch(API.top, (err, data) => {
-				this.setData({
-					title: 'Top 100' || data.title,
-					movies: data.subjects,
-					loading: false
-				})
+		app.fetch(API.top, (err, data) => {
+			this.setData({
+				title: 'Top 100' || data.title,
+				movies: data.subjects,
+				loading: false
 			})
-		} else {
-			wx.redirectTo({
-				url: 'pages/login/login',
-				success: function (res) {
-					// success
-				},
-				fail: function () {
-					// fail
-				},
-				complete: function () {
-					// complete
-				}
-			})
-		}
-
+		})
 	},
 	lower() {
 		var self = this;
