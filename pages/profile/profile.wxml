@@ -1,7 +1,7 @@
 <scroll-view  scroll-y="true">
     <view class="user box box-tb">
         <view class="box box-lr box-pack-start box-align-center">
-            <image class="avatar" src="{{userInfo.avatarUrl || '../../images/hot-actived.png'}}"></image>
+            <image bindtap="chooseAvatar" class="avatar" src="{{userInfo.avatarUrl || '../../images/hot-actived.png'}}"></image>
             <view bindtap="toLogin" class="flex box box-tb nick-name">
                 <text>{{userInfo.nickName || "您尚未登陆"}}</text>
                 <view class="box box-lr situation">

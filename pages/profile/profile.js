@@ -77,7 +77,7 @@ const conf = {
 				confirmText: "退出",
 				success(res) {
 					console.log(res);
-					if (res.confirm === 'true' || res.confirm === 1) {
+					if (res.confirm === 'true' || res.confirm === 1) { // 调试工具和真机上返回值不一样
 						self.logout();
 					}
 				}
@@ -92,7 +92,6 @@ const conf = {
 			userInfo: ""
 		})
 	},
-
 	othersClicked(e) {
 		const _type = e.currentTarget.dataset.type;
 		switch (_type) {
@@ -101,7 +100,7 @@ const conf = {
 				break;
 			case "setting":
 				wx.navigateTo({
-				  url: './setting/setting',
+				  url: `./setting/setting?userInfo=${this.data.userInfo}`,
 				  success: function(res){
 					// success
 				  },
@@ -120,6 +119,71 @@ const conf = {
 			phoneNumber: 18782966163
 		})
 	},
+    chooseAvatar(e) {
+        const self = this;
+        wx.showActionSheet({
+            itemList: ['拍照上传', '从相册选择'],
+            itemColor: '#e50150',
+            success(res) {
+                if (!res.cancel) {
+                    if (res.tapIndex === 0) {
+                        self.takePhoto();
+                    } else {
+                        self.chooseImageFromCamera();
+                    }
+                }
+            },
+            fail() {
+                console.log(e);
+            }
+        })
+    },
+    chooseImageFromCamera() {
+        const self = this;
+        wx.chooseImage({
+            count: 1, // 最多可以选择的图片张数，默认9
+            sizeType: ['original', 'compressed'], // original 原图，compressed 压缩图，默认二者都有
+            sourceType: ['album', 'camera'], // album 从相册选图，camera 使用相机，默认二者都有， 若只写其中一个，则无论哪一个都是调用相册，不能调用相机
+            success: function (res) {
+                self.setData({
+                    'userInfo.avatarUrl': res.tempFilePaths[0]
+                });
+                wx.showToast({
+                    title: "头像更换成功",
+                    duration: 1500
+                })
+            },
+            fail: function () {
+                wx.showToast({
+                    title: "头像设置失败",
+                    duration: 1500
+                })
+            }
+        })
+    },
+    takePhoto() {
+        const self = this;
+        wx.chooseImage({
+            count: 1,
+            sizeType: ['original', 'compressed'],
+            sourceType: ['album', 'camera'],
+            success: function (res) {
+                self.setData({
+                    'userInfo.avatarUrl': res.tempFilePaths[0]
+                });
+                wx.showToast({
+                    title: "头像更换成功",
+                    duration: 1500
+                })
+            },
+            fail: function () {
+                wx.showToast({
+                    title: "头像设置失败",
+                    duration: 1500
+                })
+            }
+        })
+    },
 	onShow: function () {
 		// 页面显示
 		const userInfo = wx.getStorageSync('user');
@@ -129,7 +193,8 @@ const conf = {
 			// const uid = userInfo.uid;
 			// fetch("getUserInfo", function(){})
 			wx.login({
-				success(res) {
+				success(_res) {
+					console.log(_res);
 					wx.getUserInfo({
 						success(res) {
 							res.userInfo.onlineTime = 308;
