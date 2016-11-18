@@ -1,21 +1,46 @@
-/**index.wxss**/
-.userinfo {
+.page-header {
+  height: 80rpx;
+  width: 100%;
+  background-color: #fff;
+}
+.item {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding: 20rpx 40rpx;
+  border-bottom: 1rpx solid #eee;
 }
 
-.userinfo-avatar {
+.item .poster {
   width: 128rpx;
   height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+  margin-right: 20rpx;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.item .meta {
+  flex: 1;
 }
 
-.usertitle {
-  margin-top: 200px;
+.item .meta .title,
+.item .meta .sub-title {
+  display: block;
+  margin-bottom: 15rpx;
+}
+
+.item .meta .title {
+  font-size: 32rpx;
+}
+
+.item .meta .sub-title {
+  font-size: 22rpx;
+  color: #c0c0c0;
+}
+
+.item .meta .artists {
+  font-size: 26rpx;
+  color: #999;
+}
+
+.item .rating {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #f74c31;
 }

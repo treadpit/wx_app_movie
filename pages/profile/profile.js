@@ -120,23 +120,26 @@ const conf = {
 		})
 	},
     chooseAvatar(e) {
-        const self = this;
-        wx.showActionSheet({
-            itemList: ['拍照上传', '从相册选择'],
-            itemColor: '#e50150',
-            success(res) {
-                if (!res.cancel) {
-                    if (res.tapIndex === 0) {
-                        self.takePhoto();
-                    } else {
-                        self.chooseImageFromCamera();
-                    }
-                }
-            },
-            fail() {
-                console.log(e);
-            }
-        })
+		const userInfo = wx.getStorageSync('user');
+		if (userInfo.hasLogin) {
+			const self = this;
+			wx.showActionSheet({
+				itemList: ['拍照上传', '从相册选择'],
+				itemColor: '#e50150',
+				success(res) {
+					if (!res.cancel) {
+						if (res.tapIndex === 0) {
+							self.takePhoto();
+						} else {
+							self.chooseImageFromCamera();
+						}
+					}
+				},
+				fail() {
+					console.log(e);
+				}
+			})
+		}
     },
     chooseImageFromCamera() {
         const self = this;

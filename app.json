@@ -42,12 +42,6 @@
 				"selectedIconPath": "images/approve-actived.png"
 			},
 			{
-				"text": "发现",
-				"pagePath": "pages/search/search",
-				"iconPath": "images/search.png",
-				"selectedIconPath": "images/search-actived.png"
-			},
-			{
 				"text": "我的",
 				"pagePath": "pages/profile/profile",
 				"iconPath": "images/profile.png",
