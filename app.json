@@ -12,7 +12,7 @@
 	"window": {
 		"navigationBarBackgroundColor": "#e50150",
 		"navigationBarTextStyle": "#fff",
-		"navigationBarTitleText": "聚美",
+		"navigationBarTitleText": "猎影",
 		"backgroundColor": "#fff",
 		"backgroundTextStyle": "dark",
 		"enablePullDownRefresh": true
