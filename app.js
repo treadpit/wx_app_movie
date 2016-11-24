@@ -4,7 +4,7 @@ const conf = {
 			url,
 			data: {},
 			header: {
-				'Content-Type': 'application/json'
+				'content-type': 'application/json'
 			},
 			success(res) {
 				callback(null, res.data);
